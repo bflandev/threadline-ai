@@ -1,6 +1,6 @@
 # Threadline
 
-A Claude Code plugin for use-case-driven software development. A single specification artefact — the fully dressed use case — drives every downstream activity: product design, system architecture, test-driven development, and AI-assisted code generation.
+A Claude Code plugin for use-case-driven software development. A single specification artifact — the fully dressed use case — drives every downstream activity: product design, system architecture, test-driven development, and AI-assisted code generation.
 
 Every test name traces to a use case ID. Every screen traces to a step. Every line of code traces to a test. When a bug surfaces, you follow the thread backward from code to requirement in seconds.
 
@@ -160,7 +160,7 @@ Phase 4: /threadline-ai:use-case-to-prompt
 | **Full** | All 16 | Products with UI, teams with designers |
 | **Lite** | 4 (writer, reviewer, tdd, prompt) | APIs, backend services, solo developers |
 
-Lite artefacts are fully compatible with the Full pipeline. Add skills incrementally as the team grows.
+Lite artifacts are fully compatible with the Full pipeline. Add skills incrementally as the team grows.
 
 ## Methodology
 

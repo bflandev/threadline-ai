@@ -1,7 +1,7 @@
 ---
 name: use-case-writer
 description: >
-  Use this skill whenever the user wants to specify a feature, user flow, system behaviour, or product requirement as a structured use case. Triggers include 'write a use case', 'spec this feature', 'document this flow', 'define requirements for', 'turn this into a spec', or any request to formalise what a piece of software should do. Also use when the user describes a user journey, a product idea, or a set of user stories that need to be elevated into a structured specification. Do NOT use for writing code, generating tests, or producing design artefacts — those are downstream skills.
+  Use this skill whenever the user wants to specify a feature, user flow, system behaviour, or product requirement as a structured use case. Triggers include 'write a use case', 'spec this feature', 'document this flow', 'define requirements for', 'turn this into a spec', or any request to formalise what a piece of software should do. Also use when the user describes a user journey, a product idea, or a set of user stories that need to be elevated into a structured specification. Do NOT use for writing code, generating tests, or producing design artifacts — those are downstream skills.
 ---
 
 # Use Case Writer

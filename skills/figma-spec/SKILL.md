@@ -150,7 +150,7 @@ Include this checklist in the Figma spec. The designer checks every item before 
 
 Specify what is delivered to developers at handoff.
 
-The handoff package contains three artefacts that all point at the same truth:
+The handoff package contains three artifacts that all point at the same truth:
 
 1. **Use case documents** — the spec (source of truth)
 2. **Excalidraw flow diagrams** — the navigation model (one per use case)

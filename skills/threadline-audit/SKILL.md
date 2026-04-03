@@ -1,30 +1,30 @@
 ---
 name: threadline-audit
 description: >
-  Use this skill when the user wants to verify that the traceability chain between use cases, screens, tests, technical design, and code is intact. Triggers include 'audit the threadline', 'check for drift', 'is anything out of sync', 'what broke since the last change', 'run a drift check', 'what does this change affect', or any request to verify consistency across artefacts. Also use before releases or after modifying a use case. Do NOT use for fixing drift — this skill only detects and reports it for human decision.
+  Use this skill when the user wants to verify that the traceability chain between use cases, screens, tests, technical design, and code is intact. Triggers include 'audit the threadline', 'check for drift', 'is anything out of sync', 'what broke since the last change', 'run a drift check', 'what does this change affect', or any request to verify consistency across artifacts. Also use before releases or after modifying a use case. Do NOT use for fixing drift — this skill only detects and reports it for human decision.
 ---
 
 # Threadline Audit
 
-Detects drift between use cases and their downstream artefacts — screens, tests, designs, and code — so the team can decide what to update before the traceability chain silently degrades.
+Detects drift between use cases and their downstream artifacts — screens, tests, designs, and code — so the team can decide what to update before the traceability chain silently degrades.
 
 ## Overview
 
 Drift is inevitable. A developer refactors an interactor and drops the step-number comment. A test is patched to fix a flaky assertion, and the new assertion no longer matches the use case extension it claims to cover. A screen is added to the inventory during a design review but the use case is never updated to include the step that requires it.
 
-None of these are bugs in isolation. The code works, the test passes, the screen looks correct. But the traceability chain — the core value of the Threadline — has broken. Over weeks, the specification and the implementation drift apart, and no single artefact can be trusted as the source of truth.
+None of these are bugs in isolation. The code works, the test passes, the screen looks correct. But the traceability chain — the core value of the Threadline — has broken. Over weeks, the specification and the implementation drift apart, and no single artifact can be trusted as the source of truth.
 
-This skill reads the use cases and compares them against every downstream artefact. It does not fix anything. It surfaces drift so a human can decide whether to update the use case, regenerate the artefact, or accept the deviation.
+This skill reads the use cases and compares them against every downstream artifact. It does not fix anything. It surfaces drift so a human can decide whether to update the use case, regenerate the artifact, or accept the deviation.
 
 ## Modes
 
 ### Full audit
 
-Check every use case against every artefact. Use this before releases or periodically (e.g. weekly) to catch accumulated drift.
+Check every use case against every artifact. Use this before releases or periodically (e.g. weekly) to catch accumulated drift.
 
 ### Change impact
 
-Given a specific change to a use case (e.g. "Extension 6a of UC-02 was modified"), identify every artefact that depends on the changed element and classify each as REVIEW NEEDED or REGENERATE. Use this immediately after modifying a use case.
+Given a specific change to a use case (e.g. "Extension 6a of UC-02 was modified"), identify every artifact that depends on the changed element and classify each as REVIEW NEEDED or REGENERATE. Use this immediately after modifying a use case.
 
 ## Audit dimensions
 
@@ -98,7 +98,7 @@ UC-[XX]: [Title]
       → Possible drift: [explanation]
 ```
 
-Report every check. Use ✓ for passing checks and ✗ for drift. Every ✗ line must include a "Possible drift" explanation stating what likely happened and which artefact is probably stale.
+Report every check. Use ✓ for passing checks and ✗ for drift. Every ✗ line must include a "Possible drift" explanation stating what likely happened and which artifact is probably stale.
 
 ## Output: change impact report
 
@@ -107,19 +107,19 @@ When running in change impact mode, output:
 ```
 UC-[XX] change detected: [description of change]
 
-Affected artefacts:
+Affected artifacts:
   - [file]: [specific element] — REVIEW NEEDED
   - [file]: [specific element] — REGENERATE
 ```
 
-Mark an artefact REVIEW NEEDED when the change may or may not invalidate it (e.g. a screen name might still be correct). Mark it REGENERATE when the change certainly invalidates it (e.g. a test that asserts the old extension outcome).
+Mark an artifact REVIEW NEEDED when the change may or may not invalidate it (e.g. a screen name might still be correct). Mark it REGENERATE when the change certainly invalidates it (e.g. a test that asserts the old extension outcome).
 
 ## When to run
 
 - **Before releases:** full audit to catch accumulated drift
 - **After use case changes:** change impact mode on the modified use case
 - **Periodically:** weekly or biweekly full audit on active use cases
-- **Before Gate 2:** verify that implementation artefacts still trace to the reviewed specification
+- **Before Gate 2:** verify that implementation artifacts still trace to the reviewed specification
 
 ## Common drift patterns
 

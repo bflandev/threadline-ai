@@ -6,7 +6,7 @@
 
 ## Preface
 
-Threadline is a methodology for building software products in which a single specification artefact — the fully dressed use case — drives every downstream activity: product design, system architecture, test-driven development, and AI-assisted code generation. The name refers to the unbroken thread of traceability that runs from a use case element through every artefact the pipeline produces: from a precondition to an empty state screen, from an extension to a typed domain error, from a postcondition to a test assertion. When you can follow that thread in both directions — forward from spec to code, backward from bug to requirement — you have a Threadline.
+Threadline is a methodology for building software products in which a single specification artifact — the fully dressed use case — drives every downstream activity: product design, system architecture, test-driven development, and AI-assisted code generation. The name refers to the unbroken thread of traceability that runs from a use case element through every artifact the pipeline produces: from a precondition to an empty state screen, from an extension to a typed domain error, from a postcondition to a test assertion. When you can follow that thread in both directions — forward from spec to code, backward from bug to requirement — you have a Threadline.
 
 Threadline is not a collection of loosely related practices. It is a coherent pipeline in which each phase receives its inputs from the phase before it, and every output remains traceable to the specification that required it. The methodology is codified as a suite of ten AI-automatable skills that can be orchestrated as an agentic pipeline, with two mandatory human review gates that cannot be automated away.
 
@@ -56,7 +56,7 @@ A **subfunction-level** use case describes a step within a sea-level use case: "
 
 The default is sea level. If a request is too broad for a single sea-level use case — if the title requires the word "and", or if the scenario spans more than one session — split it. If a request is too narrow — fewer than three meaningful steps, no preconditions worth stating — flag it as a subfunction and identify the parent use case it belongs to.
 
-Goal levels also control design fidelity and the scope of downstream artefacts:
+Goal levels also control design fidelity and the scope of downstream artifacts:
 
 | Goal level | Design output | Architecture output | Test output |
 |---|---|---|---|
@@ -70,7 +70,7 @@ Goal levels also control design fidelity and the scope of downstream artefacts:
 
 Every sea-level use case is written in the fully dressed format. The format has seven fields.
 
-**Use Case ID** is a sequential identifier: UC-01, UC-02, and so on. IDs are permanent references used across every Threadline artefact — screen IDs, test names, Figma page names, interactor class names, Excalidraw file names. Never renumber existing use cases.
+**Use Case ID** is a sequential identifier: UC-01, UC-02, and so on. IDs are permanent references used across every Threadline artifact — screen IDs, test names, Figma page names, interactor class names, Excalidraw file names. Never renumber existing use cases.
 
 **Title** is a verb-noun phrase in the present tense and active voice: "Submit data via a custom form", "Create a shared data table". If the title contains "and", split the use case.
 
@@ -151,7 +151,7 @@ Postconditions:
   - Owner can review the record
 ```
 
-This single use case, once threadlined, will generate: a screen inventory of seven screens and states, an Excalidraw swim-lane flow diagram, a set of Figma frames with variants for every extension, an aggregate with invariant guards derived from the precondition, typed domain errors for extensions 4a and 4b, a domain event for extension 6a, a four-level TDD test suite, and three AI generation prompts. One document in, eleven artefacts out, every one traceable back to the line that required it.
+This single use case, once threadlined, will generate: a screen inventory of seven screens and states, an Excalidraw swim-lane flow diagram, a set of Figma frames with variants for every extension, an aggregate with invariant guards derived from the precondition, typed domain errors for extensions 4a and 4b, a domain event for extension 6a, a four-level TDD test suite, and three AI generation prompts. One document in, eleven artifacts out, every one traceable back to the line that required it.
 
 ---
 
@@ -898,7 +898,7 @@ The complete Threadline methodology is codified as a pipeline of ten skills, eac
 | 9 | `use-case-to-prompt` | Reviewed use cases + test file names | Three AI prompts per use case |
 | 10 | `pipeline-orchestrator` | Product description + framework context | Coordinates all nine skills |
 
-The pipeline orchestrator is the meta-skill. It reads and invokes all other skills in the correct sequence, manages the human review gates, and produces the artefact manifest at the end.
+The pipeline orchestrator is the meta-skill. It reads and invokes all other skills in the correct sequence, manages the human review gates, and produces the artifact manifest at the end.
 
 ---
 
@@ -957,13 +957,13 @@ Gate 1 enforces specification quality. The reviewer flags issues, but a human de
 
 The agent cannot make this judgement — it does not know what design decisions the team has already made.
 
-**Gate behaviour:** If ALL use cases are READY, proceed automatically. If ANY use case is NOT READY, STOP. Present the review. Wait for instruction: fix inline or return to Phase 1 with the review as context. Do not proceed without explicit confirmation. A NOT READY use case that slips past this gate contaminates every downstream artefact.
+**Gate behaviour:** If ALL use cases are READY, proceed automatically. If ANY use case is NOT READY, STOP. Present the review. Wait for instruction: fix inline or return to Phase 1 with the review as context. Do not proceed without explicit confirmation. A NOT READY use case that slips past this gate contaminates every downstream artifact.
 
 ### Gate 2: After the Parallel Branches
 
-Gate 2 enforces design and architecture quality. At this gate, a human has for the first time a spatial representation of the system (Excalidraw), a component model (Figma spec), a technical architecture (bounded contexts, aggregates, interactors), and a test suite. Reading these four artefacts together surfaces inconsistencies that would not be visible in any single artefact alone.
+Gate 2 enforces design and architecture quality. At this gate, a human has for the first time a spatial representation of the system (Excalidraw), a component model (Figma spec), a technical architecture (bounded contexts, aggregates, interactors), and a test suite. Reading these four artifacts together surfaces inconsistencies that would not be visible in any single artifact alone.
 
-A screen in the inventory with no corresponding step indicates a missing step. An aggregate invariant that does not correspond to any precondition indicates an invented constraint. A test with no corresponding extension indicates a test that will never fail for the right reason. These cross-artefact inconsistencies are breaks in the Threadline — and Gate 2 is where they are caught.
+A screen in the inventory with no corresponding step indicates a missing step. An aggregate invariant that does not correspond to any precondition indicates an invented constraint. A test with no corresponding extension indicates a test that will never fail for the right reason. These cross-artifact inconsistencies are breaks in the Threadline — and Gate 2 is where they are caught.
 
 This gate should involve at minimum: one person who wrote the use cases, and one person who will implement the feature.
 
@@ -1022,7 +1022,7 @@ The pipeline supports running subsets:
 
 - "Just write the use cases" → Phase 1 only
 - "Just the tests" → Phase 1 → 2 → 3A only
-- "Just the design artefacts" → Phase 1 → 2 → 3C only
+- "Just the design artifacts" → Phase 1 → 2 → 3C only
 - "Just the technical design" → Phase 1 → 2 → 3B only
 - "Skip to the prompts" → requires Gate 2 cleared; refuse and explain why if not
 
@@ -1067,7 +1067,7 @@ Do not regenerate unaffected use cases — their Screen IDs, component variants,
 
 ## Chapter 23: The Threadline
 
-The defining property of this methodology is bidirectional traceability — the unbroken thread from which it takes its name. Every artefact produced by the pipeline can be traced back to the use case element that required it, and every use case element can be traced forward to the artefacts that implement it.
+The defining property of this methodology is bidirectional traceability — the unbroken thread from which it takes its name. Every artifact produced by the pipeline can be traced back to the use case element that required it, and every use case element can be traced forward to the artifacts that implement it.
 
 **Following the thread forward:** A use case extension → a named test case → a typed domain error → a branch in the aggregate method → a specific HTTP status code in the controller → a specific assertion in the acceptance test → a specific error state in the Figma file → a specific variant in the component inventory → a specific branch in the Excalidraw diagram.
 
@@ -1265,7 +1265,7 @@ outputs/
 
 These eleven principles distil the methodology. They are not rules to be followed mechanically but commitments that, taken together, produce the traceability the name promises.
 
-**1. The use case is the specification.** Not the ticket. Not the story. Not the PRD. The fully dressed use case is the only artefact from which code, tests, and designs are derived.
+**1. The use case is the specification.** Not the ticket. Not the story. Not the PRD. The fully dressed use case is the only artifact from which code, tests, and designs are derived.
 
 **2. Extensions are not optional.** Every extension is a code path, a test case, and a design state. Omitting extensions means discovering those paths in production.
 
@@ -1285,7 +1285,7 @@ These eleven principles distil the methodology. They are not rules to be followe
 
 **10. The dependency rule is non-negotiable.** If the domain imports anything from an outer layer, the architecture is broken. The fix is always to extract a port interface.
 
-**11. When a use case changes, everything changes.** The use case is the single source of truth. A change triggers regeneration of the affected tests, designs, and technical designs. Manual patching of downstream artefacts is how a codebase drifts from its specification — and how the Threadline breaks.
+**11. When a use case changes, everything changes.** The use case is the single source of truth. A change triggers regeneration of the affected tests, designs, and technical designs. Manual patching of downstream artifacts is how a codebase drifts from its specification — and how the Threadline breaks.
 
 ---
 

@@ -10,7 +10,7 @@ Audits existing use cases and surfaces ambiguities, gaps, and structural problem
 
 ## Overview
 
-The purpose of this skill is to answer the question an AI code generator would ask if it could: "What in this use case would prevent me from implementing it correctly?" Run this skill between writing use cases and generating any downstream artefact — code, tests, screens, or diagrams.
+The purpose of this skill is to answer the question an AI code generator would ask if it could: "What in this use case would prevent me from implementing it correctly?" Run this skill between writing use cases and generating any downstream artifact — code, tests, screens, or diagrams.
 
 The output is a structured review with specific, actionable issues. It is not a rewrite. Issues should be flagged so the author can resolve them, not silently fixed.
 

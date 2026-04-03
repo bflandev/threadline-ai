@@ -267,7 +267,7 @@ At the end of the pipeline, produce a complete manifest of all files created:
 - [ ] technical-design/adapters/...
 - [ ] technical-design/directory-structure.md
 
-### Design Artefacts
+### Design Artifacts
 - [ ] design/screen-inventory.md
 - [ ] design/UC-XX-[slug].excalidraw (× use case count)
 - [ ] design/component-inventory.md
@@ -309,7 +309,7 @@ If the user wants to run only part of the pipeline:
 
 - "Just write the use cases" → Phase 1 only
 - "Just the tests" → Phase 1 → 2 → 3A only
-- "Just the design artefacts" → Phase 1 → 2 → 3C only
+- "Just the design artifacts" → Phase 1 → 2 → 3C only
 - "Just the technical design" → Phase 1 → 2 → 3B only
 - "Skip to the prompts" → requires gate 2 cleared — if not, refuse and explain why
 

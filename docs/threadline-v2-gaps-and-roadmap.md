@@ -10,11 +10,11 @@ Before cataloguing what's missing, it's worth being precise about what Threadlin
 
 ### The Use Case Format
 
-The fully dressed use case format is Cockburn's design, battle-tested across two decades of software projects. It works because it forces completeness: preconditions, extensions, and observable postconditions are not optional fields — they are the fields where the majority of real-world bugs and design gaps originate. Teams that adopt the format consistently report that the most valuable artefact is the extension list, because it is the first time anyone has systematically asked "what can go wrong at each step?" before writing code.
+The fully dressed use case format is Cockburn's design, battle-tested across two decades of software projects. It works because it forces completeness: preconditions, extensions, and observable postconditions are not optional fields — they are the fields where the majority of real-world bugs and design gaps originate. Teams that adopt the format consistently report that the most valuable artifact is the extension list, because it is the first time anyone has systematically asked "what can go wrong at each step?" before writing code.
 
 ### The Mechanical Derivation
 
-The strongest part of Threadline is the deterministic translation from use case elements to downstream artefacts. Preconditions become invariant guards. Extensions become typed errors. Postconditions become test assertions. Main success scenario steps become interactor method bodies. This is not a loose analogy — it is a mechanical mapping that produces the same architecture from the same use case every time. The mapping is what makes the pipeline automatable and the output trustworthy.
+The strongest part of Threadline is the deterministic translation from use case elements to downstream artifacts. Preconditions become invariant guards. Extensions become typed errors. Postconditions become test assertions. Main success scenario steps become interactor method bodies. This is not a loose analogy — it is a mechanical mapping that produces the same architecture from the same use case every time. The mapping is what makes the pipeline automatable and the output trustworthy.
 
 ### The TDD-Aware AI Prompts
 
@@ -86,7 +86,7 @@ The `screen-inventory` skill is updated to accept both use cases and view specs 
 
 **v2 proposal: Quality Attribute Scenarios.**
 
-Introduce a supplementary artefact that attaches non-functional requirements to specific use cases or to the system as a whole. The format is adapted from the SEI quality attribute scenario template:
+Introduce a supplementary artifact that attaches non-functional requirements to specific use cases or to the system as a whole. The format is adapted from the SEI quality attribute scenario template:
 
 ```
 QA-XX: [Short name]
@@ -173,7 +173,7 @@ Integration tests for read models verify that consuming a sequence of domain eve
 
 **v2 proposal: API Contract Specification.**
 
-Introduce an API contract artefact produced alongside the technical design in Phase 3B:
+Introduce an API contract artifact produced alongside the technical design in Phase 3B:
 
 ```
 Endpoint: POST /forms/{formId}/submissions
@@ -288,14 +288,14 @@ UC-02: Submit data via a custom form
       → Possible drift: interactor was refactored without updating comments
 ```
 
-The audit skill reads the use cases and compares them against the artefacts. It does not fix anything — it surfaces the drift so a human can decide whether to update the use case or regenerate the artefact. Running the audit before each release is a lightweight way to maintain the Threadline without regenerating everything on every change.
+The audit skill reads the use cases and compares them against the artifacts. It does not fix anything — it surfaces the drift so a human can decide whether to update the use case or regenerate the artifact. Running the audit before each release is a lightweight way to maintain the Threadline without regenerating everything on every change.
 
 Additionally, introduce a **change impact report** that the pipeline orchestrator produces when a use case is modified:
 
 ```
 UC-02 change detected: Extension 6a modified
 
-Affected artefacts:
+Affected artifacts:
   - screen-inventory.md: S-02-06 (confirmation — pending) — REVIEW NEEDED
   - UC-02-form-submission.excalidraw: ext 6a branch — REGENERATE
   - component-inventory.md: StatusBadge/pending variant — REVIEW NEEDED
@@ -380,7 +380,7 @@ NOT outputs:
 
 Transition to Phase 1:
   When the team can articulate the goal in one sentence and list the actors,
-  they are ready to write the use case. Discovery artefacts become inputs
+  they are ready to write the use case. Discovery artifacts become inputs
   to use-case-writer, not outputs of the pipeline.
 ```
 
@@ -400,7 +400,7 @@ Define three gate modes based on team throughput:
 
 **Standard mode (1–3 use cases per sprint):** Both gates are synchronous review meetings. Gate 1 involves the author and one reviewer. Gate 2 involves the author, one developer, and one designer.
 
-**High-throughput mode (4–10 use cases per sprint):** Gate 1 is asynchronous — the reviewer posts the review and the author resolves issues without a meeting. Gate 2 is batched — review all artefacts from the sprint in one session rather than per-use-case.
+**High-throughput mode (4–10 use cases per sprint):** Gate 1 is asynchronous — the reviewer posts the review and the author resolves issues without a meeting. Gate 2 is batched — review all artifacts from the sprint in one session rather than per-use-case.
 
 **Solo mode (one developer, no designer):** Gate 1 is self-review using the six-dimension checklist (the reviewer skill runs, the developer reads the output and self-certifies). Gate 2 is replaced by a test skeleton review — the developer reads the test names and verifies they match the use case before proceeding to implementation prompts.
 
@@ -506,7 +506,7 @@ INPUT: use case goals, actors, known constraints, QA requirements
 | `view-spec-writer` | Product description + domain model | View specifications for read-heavy features |
 | `view-to-query-model` | View specs + domain events | Read model specifications |
 | `component-to-code` | Component inventory + framework | Framework-specific component specifications |
-| `threadline-audit` | All artefacts | Drift detection report |
+| `threadline-audit` | All artifacts | Drift detection report |
 | `api-contract-writer` | Use cases + technical design | API endpoint specifications |
 
 ### Updated Skills in v2
@@ -563,7 +563,7 @@ Screen inventory, Excalidraw, component inventory, Figma spec, full technical de
 
 ### Upgrade Path
 
-Every artefact produced by Threadline Lite is fully compatible with the Full pipeline. When the team is ready:
+Every artifact produced by Threadline Lite is fully compatible with the Full pipeline. When the team is ready:
 
 1. Add `screen-inventory` — takes the existing use cases as input, no changes needed
 2. Add `excalidraw-generator` — takes the existing use cases + new screen inventory

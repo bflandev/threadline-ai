@@ -28,7 +28,7 @@ Phase 1: Write use cases
 Phase 2: Review use cases (Gate 1)
 Phase 3A: Write TDD test suites (red — all failing)
 Phase 3B: Write technical design (aggregates, interactors, ports, adapters)
-Phase 3C: Write design artefacts (Excalidraw, Figma)
+Phase 3C: Write design artifacts (Excalidraw, Figma)
 Phase 4: Human review (Gate 2)
 Phase 5: Generate AI implementation prompts (make the tests go green)
 ```
@@ -737,14 +737,14 @@ Do not proceed past Gate 1 if any use case is NOT READY. Fix and re-review.
 
 ### Gate 2: human review
 
-At Gate 2, a human reviews four artefacts simultaneously:
+At Gate 2, a human reviews four artifacts simultaneously:
 
 - **Excalidraw diagrams** — verify every step and extension is present and correctly attributed to the right actor's swim lane
 - **Technical design** — verify bounded contexts are correctly identified, aggregate invariants match preconditions, typed errors match extensions
 - **TDD test skeletons** — verify every extension has a test, every postcondition has an assertion, all tests are red (no implementation yet)
 - **Figma spec** — verify screen coverage, component variants, annotation conventions
 
-If gaps are found in the use cases at Gate 2, return to Phase 1. Cascade the change through all downstream phases. Do not patch artefacts to paper over a use case gap.
+If gaps are found in the use cases at Gate 2, return to Phase 1. Cascade the change through all downstream phases. Do not patch artifacts to paper over a use case gap.
 
 ### Parallel execution
 
@@ -821,7 +821,7 @@ outputs/
 
 ### The traceability chain
 
-Every artefact in the package is traceable in both directions:
+Every artifact in the package is traceable in both directions:
 
 **Forward (spec to test to code):**
 ```
@@ -878,7 +878,7 @@ Available skill files:
 
 Instructions:
 - Pause at Gate 1 and present the review before proceeding
-- Pause at Gate 2 and present all artefacts before proceeding
+- Pause at Gate 2 and present all artifacts before proceeding
 - All tests must be written RED — no implementation until Gate 2 is cleared
 - Run branches 3A, 3B, and 3C in parallel if possible
 - Produce the artifact manifest at the end
