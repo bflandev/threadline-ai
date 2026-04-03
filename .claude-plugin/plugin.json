@@ -1,0 +1,27 @@
+{
+  "name": "threadline-ai",
+  "version": "2.0.0",
+  "description": "Use-case-driven methodology that derives product design, Clean Architecture, TDD test suites, API contracts, read models, and AI code-generation prompts from fully dressed use cases",
+  "author": {
+    "name": "Threadline AI"
+  },
+  "repository": "https://github.com/threadline-ai/threadline-ai",
+  "license": "MIT",
+  "keywords": [
+    "use-cases",
+    "tdd",
+    "clean-architecture",
+    "ddd",
+    "specification",
+    "code-generation",
+    "figma",
+    "excalidraw",
+    "api-contracts",
+    "cqrs",
+    "read-models",
+    "quality-attributes",
+    "drift-detection"
+  ],
+  "skills": "./skills/",
+  "agents": "./agents/"
+}

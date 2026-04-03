@@ -1,6 +1,7 @@
 ---
 name: agentic-patterns
-description: This skill should be used when the user asks to "build a multi-agent system", "design an agent pipeline", "pick the right agentic pattern", "create an orchestration workflow", "implement a swarm or coordinator pattern", or "build an agent that routes to specialists". Guides pattern selection, component design, and wiring for single-agent, sequential, parallel, loop, review-critique, coordinator, hierarchical, swarm, ReAct, and human-in-the-loop patterns.
+description: >
+  Use this skill when the user wants to build a multi-agent system, design an agent pipeline, pick the right agentic pattern, create an orchestration workflow, or implement patterns like coordinator, swarm, or ReAct. Covers single-agent, sequential, parallel, loop, review-critique, iterative-refinement, coordinator, hierarchical, swarm, ReAct, human-in-the-loop, and custom-logic patterns. Do NOT use for tweaking a single existing agent or composing existing skills.
 ---
 
 # Agentic AI Pattern Builder
